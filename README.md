@@ -8,6 +8,9 @@ All registered users are shown in a list in the app.
 
 - [Reference: Persist data with SQLite](https://docs.flutter.dev/cookbook/persistence/sqlite)
 
+## Demo
+![demo](https://user-images.githubusercontent.com/87580996/169343565-53508073-48f1-49e0-9217-1c80d3192245.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
