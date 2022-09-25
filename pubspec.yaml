@@ -36,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   sqflite: ^2.0.2+1
   path_provider: ^2.0.10
+  provider: ^6.0.3
+  flutter_slidable: ^2.0.0
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:
@@ -75,12 +78,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
