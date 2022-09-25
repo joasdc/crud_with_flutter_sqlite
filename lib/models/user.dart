@@ -4,9 +4,9 @@ class User {
   final String email;
 
   User({
-    required this.name,
+    this.name = "",
     this.id,
-    required this.email,
+    this.email = "",
   });
 
   // Usado para inserir dados no banco de dados
