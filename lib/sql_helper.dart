@@ -7,7 +7,7 @@ import 'dart:async';
 
 // Inicializar o banco de dados
 class UserDbProvider {
-  // função para abrir conexão com o banco de dados
+  // método para abrir conexão com o banco de dados
   Future<Database> init() async {
     // Retorna um diretório que armazena arquivos permanentes
     Directory directory = await getApplicationDocumentsDirectory();
@@ -16,13 +16,15 @@ class UserDbProvider {
     final path = join(directory.path, "users.db");
 
     // Abre o DB, ou cria um DB se não houver nenhum
-    return await openDatabase(path, version: 1,
-        onCreate: (Database db, int version) async {
-      await db.execute("""
+    return await openDatabase(path, version: 1, onCreate: (Database db, int version) async {
+      await db.execute(
+        """
         CREATE TABLE Users(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT,
-        email TEXT)""");
+        email TEXT)
+        """,
+      );
     });
   }
 
@@ -65,8 +67,7 @@ class UserDbProvider {
 
     int result = await db.delete("Users", // nome da tabela
         where: "id = ?",
-        whereArgs: [id] //
-        );
+        whereArgs: [id]);
 
     return result;
   }
@@ -75,8 +76,7 @@ class UserDbProvider {
   Future<int> updateUser(int id, User user) async {
     final db = await init();
 
-    int result = await db
-        .update("Users", user.toMap(), where: "id = ?", whereArgs: [id]);
+    int result = await db.update("Users", user.toMap(), where: "id = ?", whereArgs: [id]);
     return result;
   }
 }
