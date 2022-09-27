@@ -1,17 +1,33 @@
+import 'dart:io';
+
 import 'package:crud_user_registration/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../provider/user_list_provider.dart';
-import 'modal_form.dart';
+import '../utils/modal_bottom_sheet.dart';
 
 class UserItem extends StatelessWidget {
   final User user;
 
-  final modal = ModalForm();
+  final modal = ModalBottomSheet();
 
   UserItem(this.user, {Key? key}) : super(key: key);
+
+  bool get hasLocalImage {
+    bool hasLocalImage = File(user.imageUrl).existsSync();
+    return hasLocalImage;
+  }
+
+  ImageProvider backgroundImage(bool hasLocalImage) {
+    if (hasLocalImage) {
+      var bytes = File(user.imageUrl).readAsBytesSync();
+      return MemoryImage(bytes);
+    } else {
+      return NetworkImage(user.imageUrl);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +64,9 @@ class UserItem extends StatelessWidget {
       child: Card(
         elevation: 20,
         child: ListTile(
-          leading: const CircleAvatar(
-            backgroundImage: NetworkImage("https://cdn.pixabay.com/photo/2016/03/31/19/57/avatar-1295404_960_720.png"),
+          leading: CircleAvatar(
+            backgroundImage: backgroundImage(hasLocalImage),
+            // child: Visibility(visible: !hasLocalImage, child: CircularProgressIndicator()),
           ),
           title: Text(user.name),
           subtitle: Text(user.email),
