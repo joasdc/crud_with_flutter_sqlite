@@ -1,5 +1,5 @@
 import 'package:crud_user_registration/provider/theme_provider.dart';
-import 'package:crud_user_registration/widgets/modal_form.dart';
+import 'package:crud_user_registration/utils/modal_bottom_sheet.dart';
 import 'package:crud_user_registration/widgets/user_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,16 +15,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final modal = ModalForm();
-
-  Future<List<User>> getUserList() async {
-    List<User> userList = await Provider.of<UserListProvider>(context).getUserList();
-
-    return userList;
-  }
+  final modal = ModalBottomSheet();
 
   @override
   Widget build(BuildContext context) {
+    Future<List<User>> getUserList() async {
+      List<User> userList = await Provider.of<UserListProvider>(context).getUserList();
+
+      return userList;
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -39,11 +39,9 @@ class _HomePageState extends State<HomePage> {
                 duration: const Duration(milliseconds: 300),
                 child: IconButton(
                   onPressed: () {
-                    currentTheme == "light" || currentTheme == "system"
-                        ? theme.changeTheme("dark")
-                        : theme.changeTheme("light");
+                    currentTheme == "light" ? theme.changeTheme("dark") : theme.changeTheme("light");
                   },
-                  icon: Icon(currentTheme == "light" || currentTheme == "system" ? Icons.dark_mode : Icons.light_mode),
+                  icon: Icon(currentTheme == "light" ? Icons.dark_mode : Icons.light_mode),
                   splashRadius: 26,
                   key: ValueKey(currentTheme),
                 ),
@@ -57,7 +55,7 @@ class _HomePageState extends State<HomePage> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-              child: CircularProgressIndicator(color: Colors.black),
+              child: CircularProgressIndicator(color: Colors.white),
             );
           } else {
             final List<User> list = snapshot.data!;

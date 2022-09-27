@@ -1,4 +1,4 @@
-import 'package:crud_user_registration/sql_helper.dart';
+import 'package:crud_user_registration/database/sql_helper.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../models/user.dart';
