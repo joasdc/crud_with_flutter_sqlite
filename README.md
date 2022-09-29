@@ -1,25 +1,20 @@
-# Crud_With_Flutter_And_Sqlite
+# Crud With Flutter And Sqlite
 
-A new Flutter project.
+The application allows you to register a user with your name and email, add an image, edit and also delete.
 
-The application allows you to register a user with your name and email, edit and also delete.
-
-All registered users are shown in a list in the app.
-
-- [Reference: Persist data with SQLite](https://docs.flutter.dev/cookbook/persistence/sqlite)
+The data is persisted in a Sqlite database, the plugin used was Sqflite.
 
 ## Demo
-![demo](https://user-images.githubusercontent.com/87580996/169343565-53508073-48f1-49e0-9217-1c80d3192245.gif)
+![demo](https://user-images.githubusercontent.com/87580996/192928469-180a7f21-8141-45b2-bcb7-bd235149664e.gif)
 
-## Getting Started
+## Functionalities
+- Register, edit and delete user.
+- Image upload.
+- Light and Dark mode.
 
-This project is a starting point for a Flutter application.
+## Author
+Made with ❤️ by Idelfonso Joás. Contact me!
 
-A few resources to get you started if this is your first Flutter project:
+[![Linkedin Badge](https://img.shields.io/badge/-Joás-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/joasdc/)](https://www.linkedin.com/in/joasdc/) 
+[![Gmail Badge](https://img.shields.io/badge/-idelfonsojoas@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:idelfonsojoas@gmail.com)](mailto:idelfonsojoas@gmail.com)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
