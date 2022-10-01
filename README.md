@@ -2,7 +2,7 @@
 
 The application allows you to register a user with your name and email, add an image, edit and also delete.
 
-The data is persisted in a Sqlite database, the plugin used was Sqflite.
+The data is persisted in a Sqlite database, the plugin used was Sqflite, and in the state management part, Provider was used.
 
 ## Demo
 ![demo](https://user-images.githubusercontent.com/87580996/192928469-180a7f21-8141-45b2-bcb7-bd235149664e.gif)
